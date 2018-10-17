@@ -1,9 +1,10 @@
 object GridTuneDialog: TGridTuneDialog
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072' '#1089#1074#1086#1081#1089#1090#1074
-  ClientHeight = 299
-  ClientWidth = 635
+  ClientHeight = 191
+  ClientWidth = 429
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -47,8 +48,8 @@ object GridTuneDialog: TGridTuneDialog
       #1042#1089#1077#1075#1076#1072)
   end
   object btnOK: TButton
-    Left = 528
-    Top = 16
+    Left = 336
+    Top = 8
     Width = 75
     Height = 25
     Caption = #1054#1050
@@ -56,8 +57,8 @@ object GridTuneDialog: TGridTuneDialog
     TabOrder = 6
   end
   object btnCancel: TButton
-    Left = 528
-    Top = 56
+    Left = 336
+    Top = 48
     Width = 75
     Height = 25
     Caption = #1054#1090#1084#1077#1085#1072

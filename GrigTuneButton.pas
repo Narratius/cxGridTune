@@ -110,11 +110,8 @@ end;
 
 procedure TGridTuneButton.pm_SetGrid(const Value: TcxGrid);
 begin
-  f_Grid := Value;
-  if f_Grid <> nil then
-  begin
-   LoadGridParameters;
-  end;
+ f_Grid := Value;
+ LoadGridParameters;
 end;
 
 procedure TGridTuneButton.SaveGridParameters;
@@ -162,20 +159,41 @@ procedure TGridTuneButton.LoadTableViewParam(aRegistry: TRegistry; aView: TcxCus
 begin
  with aView as TcxGridTableView, aRegistry do
  begin
-   if KeyExists('FilterBox') then
+   try
      FilterBox.Visible:= TcxGridFilterVisible(ReadInteger('FilterBox'));
-   if KeyExists('FilterRow') then
+   except
+
+   end;
+   try
      FilterRow.Visible:= ReadBool('FilterRow');
-   if KeyExists('FindPanel') then
+   except
+
+   end;
+   try
      FindPanel.DisplayMode:= TcxFindPanelDisplayMode(ReadInteger('FindPanel'));
-   if KeyExists('Navigator') then
+   except
+
+   end;
+   try
      Navigator.Visible:= ReadBool('Navigator');
-   if KeyExists('InfoPanel') then
+   except
+
+   end;
+   try
      Navigator.InfoPanel.Visible:= ReadBool('InfoPanel');
-   if KeyExists('NewItemRow') then
+   except
+
+   end;
+   try
      NewItemRow.Visible:= ReadBool('NewItemRow');
-   if KeyExists('EditMode') then
-     OptionsBehavior.EditMode:= TcxGridEditMode(ReadInteger('EitMode'));
+   except
+
+   end;
+   try
+     OptionsBehavior.EditMode:= TcxGridEditMode(ReadInteger('EditMode'));
+   except
+
+   end;
    OptionsCustomize.ColumnsQuickCustomization:= True;
  end;
 end;

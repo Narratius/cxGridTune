@@ -31,10 +31,6 @@ type
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
-    SpeedButton1: TSpeedButton;
-    DataSource1: TDataSource;
-    ClientDataSet1: TClientDataSet;
-    procedure SpeedButton1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -44,6 +40,7 @@ type
 
 var
   Form3: TForm3;
+
 
 implementation
 
@@ -62,14 +59,9 @@ begin
   Name:= 'GridTuneButton1';
   Top:= 10;
   left:= 10;
-  Grid:= cxGrid1;
  end;
  InsertControl(l_B);
-end;
-
-procedure TForm3.SpeedButton1Click(Sender: TObject);
-begin
- TuneGrid(cxGrid1);
+ l_B.Grid:= cxGrid1;
 end;
 
 end.
