@@ -1,0 +1,16 @@
+﻿[SpeedButton1]
+Coordinates=79,10,96,36
+Visible=True
+
+[cxGrid1]
+Coordinates=10,10,59,36
+
+[cxGrid1DBTableView1]
+Coordinates=193,1,144,36
+
+[cxGrid1Level1]
+Coordinates=375,1,97,36
+
+[]
+Coordinates=96,55,91,36
+
