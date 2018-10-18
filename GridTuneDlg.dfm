@@ -12,6 +12,7 @@ object GridTuneDialog: TGridTuneDialog
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -53,12 +54,13 @@ object GridTuneDialog: TGridTuneDialog
     Width = 75
     Height = 25
     Caption = #1054#1050
+    Default = True
     ModalResult = 1
     TabOrder = 6
   end
   object btnCancel: TButton
     Left = 336
-    Top = 48
+    Top = 39
     Width = 75
     Height = 25
     Caption = #1054#1090#1084#1077#1085#1072

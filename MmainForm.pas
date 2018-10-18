@@ -27,7 +27,7 @@ uses
   Data.FMTBcd, Data.DBXMsSQL, Data.SqlExpr, Datasnap.DBClient;
 
 type
-  TForm3 = class(TForm)
+  TtestForm = class(TForm)
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
@@ -39,7 +39,7 @@ type
   end;
 
 var
-  Form3: TForm3;
+  testForm: TtestForm;
 
 
 implementation
@@ -47,9 +47,9 @@ implementation
 {$R *.dfm}
 
 Uses
- GridTuneDlg, GrigTuneButton;
+  GrigTuneButton;
 
-procedure TForm3.FormCreate(Sender: TObject);
+procedure TtestForm.FormCreate(Sender: TObject);
 var
  l_B: TGridTuneButton;
 begin

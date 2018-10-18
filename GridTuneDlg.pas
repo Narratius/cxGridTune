@@ -1,5 +1,9 @@
 unit GridTuneDlg;
 
+{ TGridTuneDialog
+  окно настроек параметров TcxGrid (пока только TcxGridTableView) }
+
+
 interface
 
 uses

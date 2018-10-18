@@ -2,7 +2,7 @@ program GridTune;
 
 uses
   Vcl.Forms,
-  MmainForm in 'MmainForm.pas' {Form3},
+  MmainForm in 'MmainForm.pas' {testForm},
   GridTuneDlg in 'GridTuneDlg.pas' {GridTuneDialog},
   GrigTuneButton in 'GrigTuneButton.pas';
 
@@ -11,7 +11,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TtestForm, testForm);
   Application.CreateForm(TGridTuneDialog, GridTuneDialog);
   Application.Run;
 end.
