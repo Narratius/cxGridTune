@@ -124,4 +124,45 @@ object GridTuneDialog: TGridTuneDialog
     Caption = #1042#1080#1076#1080#1084#1086#1089#1090#1100' '#1087#1072#1085#1077#1083#1080' '#1085#1072#1074#1080#1075#1072#1090#1086#1088#1072
     TabOrder = 8
   end
+  object GridPopupMenu: TPopupMenu
+    Left = 336
+    Top = 88
+    object itemSaveToExcel: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' '#1050#1085#1080#1075#1091' Excel...'
+      OnClick = itemSaveToExcelClick
+    end
+    object itemSaveToText: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' '#1090#1077#1082#1089#1090'...'
+      OnClick = itemSaveToTextClick
+    end
+    object itemSaveToCSV: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' CSV...'
+      OnClick = itemSaveToCSVClick
+    end
+    object itemSaveToXML: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' '#1058#1072#1073#1083#1080#1094#1091' XML...'
+      OnClick = itemSaveToXMLClick
+    end
+    object itemSaveToHTML: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074' '#1042#1077#1073' '#1089#1090#1088#1072#1085#1080#1094#1091'...'
+      OnClick = itemSaveToHTMLClick
+    end
+    object itemDivider2: TMenuItem
+      Caption = '-'
+    end
+    object itemPrint: TMenuItem
+      Caption = #1055#1077#1095#1072#1090#1100'...'
+    end
+    object itemDivider: TMenuItem
+      Caption = '-'
+    end
+    object itemStoreToRegistry: TMenuItem
+      Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1088#1072#1089#1082#1083#1072#1076#1082#1091
+      OnClick = itemStoreToRegistryClick
+    end
+    object itemRestoreFromRegistry: TMenuItem
+      Caption = #1042#1086#1089#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1088#1072#1089#1082#1083#1072#1076#1082#1091
+      OnClick = itemRestoreFromRegistryClick
+    end
+  end
 end
