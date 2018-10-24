@@ -272,34 +272,20 @@ begin
      if l_R.OpenKey(f_GridKey, False) then
      with f_TableView as TcxGridTableView, l_R do
      begin
-       try
+       if ValueExists('FilterBox') then
          FilterBox.Visible:= TcxGridFilterVisible(ReadInteger('FilterBox'));
-       except
-       end;
-       try
+       if ValueExists('FilterRow') then
          FilterRow.Visible:= ReadBool('FilterRow');
-       except
-       end;
-       try
+       if ValueExists('FindPanel') then
          FindPanel.DisplayMode:= TcxFindPanelDisplayMode(ReadInteger('FindPanel'));
-       except
-       end;
-       try
+       if ValueExists('Navigator') then
          Navigator.Visible:= ReadBool('Navigator');
-       except
-       end;
-       try
+       if ValueExists('InfoPanel') then
          Navigator.InfoPanel.Visible:= ReadBool('InfoPanel');
-       except
-       end;
-       try
+       if ValueExists('NewItemRow') then
          NewItemRow.Visible:= ReadBool('NewItemRow');
-       except
-       end;
-       try
+       if ValueExists('EditMode') then
          OptionsBehavior.EditMode:= TcxGridEditMode(ReadInteger('EditMode'));
-       except
-       end;
        OptionsCustomize.ColumnsQuickCustomization:= True;
      end;
    end;
