@@ -6,11 +6,13 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage,
-  cxEdit, cxNavigator, cxDataControllerConditionalFormattingRulesManagerDialog,
+  cxEdit, cxNavigator,
   Data.DB, cxDBData, cxGridLevel, cxClasses, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, Vcl.Buttons,
   Data.FMTBcd, Data.DBXMsSQL, Data.SqlExpr, Datasnap.DBClient,
-  GridTuneDlg, Vcl.StdCtrls, dxmdaset;
+  GridTuneDlg, Vcl.StdCtrls, dxmdaset, dxCore, dxCoreClasses, dxGDIPlusAPI,
+  dxGDIPlusClasses, dxRichEdit.Types, dxRichEdit.Options, dxRichEdit.Control,
+  dxHttpIndyRequest, dxBarBuiltInMenu, dxRichEdit.Platform.Win.Control;
 
 type
   TtestForm = class(TForm)

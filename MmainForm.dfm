@@ -30,9 +30,9 @@ object testForm: TtestForm
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
+      OptionsSelection.InvertSelect = False
       OptionsSelection.MultiSelect = True
       OptionsSelection.CellMultiSelect = True
-      OptionsSelection.InvertSelect = False
       object cxGrid1DBTableView1RecId: TcxGridDBColumn
         DataBinding.FieldName = 'RecId'
         Visible = False

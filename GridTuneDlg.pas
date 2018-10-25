@@ -3,7 +3,6 @@ unit GridTuneDlg;
 { TGridTuneDialog
   окно настроек параметров TcxGrid (пока только TcxGridTableView) }
 
-
 interface
 
 uses
@@ -11,6 +10,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   cxGrid, cxGridTableView,
   Vcl.StdCtrls, Vcl.Menus;
+
 
 type
   TGridTuneDialog = class(TForm)
@@ -80,7 +80,7 @@ implementation
 
 Uses
  Registry, StrUtils,
- cxGridCustomTableView, cxFindPanel, Cxgridinplaceeditform,
+ cxGridCustomTableView, {cxFindPanel,} Cxgridinplaceeditform,
  cxGridExportLink;
 
 
