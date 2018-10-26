@@ -58,24 +58,6 @@ object testForm: TtestForm
     TabOrder = 1
     OnClick = btnTuneGridClick
   end
-  object btnExcel: TButton
-    Left = 88
-    Top = 8
-    Width = 75
-    Height = 25
-    Caption = 'Excel'
-    TabOrder = 2
-    OnClick = btnExcelClick
-  end
-  object btnHTML: TButton
-    Left = 168
-    Top = 8
-    Width = 75
-    Height = 25
-    Caption = 'HTML'
-    TabOrder = 3
-    OnClick = btnHTMLClick
-  end
   object dxMemData1: TdxMemData
     Active = True
     Indexes = <>

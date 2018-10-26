@@ -9,23 +9,13 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   cxGrid, cxGridTableView,
-  Vcl.StdCtrls, Vcl.Menus;
+  Vcl.StdCtrls, Vcl.Menus, Vcl.ExtCtrls;
 
 
 type
   TGridTuneDialog = class(TForm)
-    Label1: TLabel;
-    comboFilterBox: TComboBox;
     btnOK: TButton;
     btnCancel: TButton;
-    Label2: TLabel;
-    comboFindPanel: TComboBox;
-    CheckNavigator: TCheckBox;
-    CheckNewItemRow: TCheckBox;
-    CheckFilterRow: TCheckBox;
-    ComboEditMode: TComboBox;
-    Label3: TLabel;
-    checkInfoPanel: TCheckBox;
     GridPopupMenu: TPopupMenu;
     itemSaveToHTML: TMenuItem;
     itemSaveToText: TMenuItem;
@@ -37,6 +27,22 @@ type
     itemPrint: TMenuItem;
     itemSaveToCSV: TMenuItem;
     itemDivider2: TMenuItem;
+    btnExcel: TButton;
+    btnCSV: TButton;
+    btnHTML: TButton;
+    btnXML: TButton;
+    btnText: TButton;
+    GroupBox1: TGroupBox;
+    CheckFilterRow: TCheckBox;
+    CheckNewItemRow: TCheckBox;
+    checkInfoPanel: TCheckBox;
+    CheckNavigator: TCheckBox;
+    checkFilterBox: TCheckBox;
+    checkFindPanel: TCheckBox;
+    GroupBox2: TGroupBox;
+    radioInplace: TRadioButton;
+    radioInForm: TRadioButton;
+    checkEditModeAdv: TCheckBox;
     procedure CheckNavigatorClick(Sender: TObject);
     procedure itemSaveToHTMLClick(Sender: TObject);
     procedure itemSaveToTextClick(Sender: TObject);
@@ -45,6 +51,7 @@ type
     procedure itemRestoreFromRegistryClick(Sender: TObject);
     procedure itemStoreToRegistryClick(Sender: TObject);
     procedure itemSaveToCSVClick(Sender: TObject);
+    procedure radioInplaceClick(Sender: TObject);
   private
    f_Grid: TcxGrid;
    f_AppKey: String;
@@ -80,7 +87,7 @@ implementation
 
 Uses
  Registry, StrUtils,
- cxGridCustomTableView, {cxFindPanel,} Cxgridinplaceeditform,
+ cxGridCustomTableView, Cxgridinplaceeditform,
  cxGridExportLink;
 
 
@@ -150,13 +157,22 @@ procedure TGridTuneDialog.GetGridParameters;
 begin
   with f_TableView do
   begin
-    comboFilterBox.ItemIndex:= ord(FilterBox.Visible);
-    comboFindPanel.ItemIndex:= Ord(FindPanel.DisplayMode);
+    checkFilterBox.Checked:= FilterBox.Visible = fvAlways;
+    checkFindPanel.Checked:= FindPanel.DisplayMode = fpdmAlways;
     checkFilterRow.Checked:= FilterRow.Visible;
     checkNavigator.Checked:= Navigator.Visible;
     checkInfoPanel.Checked:= Navigator.InfoPanel.Visible;
     checkNewItemRow.Checked:= NewItemRow.Visible;
-    comboEditMode.ItemIndex:= Ord(OptionsBehavior.EditMode);
+    case OptionsBehavior.EditMode of
+     emInplace: radioInplace.Checked:= True;
+     emInplaceEditForm,
+     emInplaceEditFormHideCurrentRow:
+      begin
+       radioInForm.Checked:= True;
+       checkEditModeAdv.Checked:= OptionsBehavior.EditMode = emInplaceEditFormHideCurrentRow;
+      end;
+    end;
+    checkEditModeAdv.Enabled:= radioInForm.Checked;
   end;
 end;
 
@@ -234,6 +250,11 @@ begin
   end;
 end;
 
+procedure TGridTuneDialog.radioInplaceClick(Sender: TObject);
+begin
+  checkEditModeAdv.Enabled:= radioInForm.Checked;
+end;
+
 procedure TGridTuneDialog.SetGridParameters;
 var
  i: Integer;
@@ -244,13 +265,27 @@ begin
       if Views[i] is TcxGridTableView then
       with TcxGridTableView(Views[i]) do
       begin
-       FilterBox.Visible:= TcxGridFilterVisible(comboFilterBox.ItemIndex);
+       if checkFilterBox.Checked then
+        FilterBox.Visible:= fvAlways
+       else
+        FilterBox.Visible:= fvNever;
        FilterRow.Visible:= checkFilterRow.Checked;
-       FindPanel.DisplayMode:= TcxFindPanelDisplayMode(comboFindPanel.ItemIndex);
+       if checkFindPanel.Checked then
+        FindPanel.DisplayMode:= fpdmAlways
+       else
+        FindPanel.DisplayMode:= fpdmNever;
        Navigator.Visible:= checkNavigator.Checked;
        Navigator.InfoPanel.Visible:= checkInfoPanel.Checked;
        NewItemRow.Visible:= checkNewItemRow.Checked;
-       OptionsBehavior.EditMode:= TcxGridEditMode(comboEditMode.ItemIndex);
+       if radioInplace.Checked then
+        OptionsBehavior.EditMode:= emInplace
+       else
+       begin
+        if checkEditModeAdv.Checked then
+         OptionsBehavior.EditMode:= emInplaceEditFormHideCurrentRow
+        else
+         OptionsBehavior.EditMode:= emInplaceEditForm;
+       end;
        OptionsCustomize.ColumnsQuickCustomization:= True;
       end;
   end;
